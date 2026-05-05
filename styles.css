@@ -1,0 +1,270 @@
+/* Pinoy Kusina - Enhanced Responsive Styles */
+/* Bootstrap 5 overrides + custom animations for engaging design */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-red: #d32f2f;
+  --accent-orange: #ff7043;
+  --light-bg: #fff8e1;
+  --card-bg: #fff3e0;
+  --text-dark: #bf360c;
+  --shadow: 0 4px 20px rgba(0,0,0,0.1);
+  --hover-shadow: 0 8px 30px rgba(211,47,47,0.2);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Navbar Custom */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-red), #b71c1c);
+  box-shadow: var(--shadow);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white !important;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-orange) !important;
+  transform: translateY(-2px);
+}
+
+/* Hero Carousel */
+.carousel-item {
+  height: 70vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.carousel-caption {
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+/* Cards - Menu */
+.card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: var(--hover-shadow);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-title {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.price-badge {
+  background: linear-gradient(45deg, var(--accent-orange), #ff5722);
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Sections */
+.content-section {
+  padding: 4rem 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(5px);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-orange), var(--primary-red));
+  border-radius: 2px;
+}
+
+/* Cart Modal */
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: var(--hover-shadow);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s;
+}
+
+.cart-item:hover {
+  background: var(--card-bg);
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+/* Buttons */
+.btn-custom {
+  background: linear-gradient(135deg, var(--accent-orange), #ff5722);
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.btn-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--hover-shadow);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--primary-red), #b71c1c);
+  color: white;
+  padding: 2rem 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card, .section-title {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 50vh;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Loading */
+.lds-ring {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.lds-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-ring 1.2s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-orange);
+  border-radius: 4px;
+}
+
+
