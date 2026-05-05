@@ -8,64 +8,97 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons (minimal line-art icons) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Responsive Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <!-- Responsive Navbar (sticky + transforms to glass on scroll) -->
+  <nav id="siteNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">🍴 Pinoy Kusina</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="#">Pinoy Kusina</a>
+      <div class="d-flex align-items-center ms-auto me-2">
+        <div class="search-wrapper d-flex align-items-center">
+          <button id="searchToggle" class="btn btn-link text-white p-0 me-2" aria-label="Search"><i class="bi bi-search" style="font-size:1.15rem"></i></button>
+          <input id="headerSearch" class="form-control search-box" type="search" placeholder="Search dishes..." aria-label="Search">
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('home')">🏠 Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('menu')">🍽️ Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('about')">ℹ️ About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact')">📞 Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showCart()" id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('home')"><i class="bi bi-house-door me-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('menu')"><i class="bi bi-list-ul me-1"></i> Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('about')"><i class="bi bi-info-circle me-1"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact')"><i class="bi bi-telephone me-1"></i> Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" id="cartBtn"><i class="bi bi-cart me-1"></i> Cart (<span id="cartCount">0</span>)</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Carousel - Home -->
+  <!-- Hero Carousel - Home (custom: static glass overlay + animated backgrounds) -->
   <section id="home" class="content-section py-5">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    <div id="heroCarousel" class="hero-carousel" data-autoplay="true" data-interval="6500" aria-roledescription="carousel">
+      <div class="hero-slides">
+        <div class="hero-slide active" data-bg="images/background.jpg" data-title="Maligayang Pagdating!" data-sub="Tikman ang mga paboritong lutong bahay na tunay na panlasang Pinoy 🇵🇭" data-cta-target="menu" data-cta-text="View Menu"></div>
+        <div class="hero-slide" data-bg="images/anack.jpg" data-title="Luto ng Bayan" data-sub="Bawat kagat, puno ng pagmamahal at tradisyon"></div>
+        <div class="hero-slide" data-bg="images/pinoy.jpeg" data-title="Lasa ng Tahanan!" data-sub="Handa na ba kayong mag-order?"></div>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="background-image: url('images/background.jpg');">
-          <div class="carousel-caption d-none d-md-block">
-            <h1 class="display-4 fw-bold">Maligayang Pagdating!</h1>
-            <p class="lead">Tikman ang mga paboritong lutong bahay na tunay na panlasang Pinoy 🇵🇭</p>
-            <a href="#" onclick="showSection('menu')" class="btn btn-custom btn-lg">View Menu</a>
-          </div>
+
+      <!-- Static glass overlay with caption that doesn't move with slides -->
+      <div class="hero-overlay">
+        <div class="hero-caption">
+          <h1 class="display-4 fw-bold" id="heroTitle">Maligayang Pagdating!</h1>
+          <p class="lead" id="heroSubtitle">Tikman ang mga paboritong lutong bahay na tunay na panlasang Pinoy 🇵🇭</p>
+          <a href="#" id="heroCTA" class="btn btn-custom btn-lg">View Menu</a>
         </div>
-        <div class="carousel-item" style="background-image: url('images/anack.jpg');">
-          <div class="carousel-caption d-none d-md-block">
-            <h1 class="display-4 fw-bold">Luto ng Bayan</h1>
-            <p class="lead">Bawat kagat, puno ng pagmamahal at tradisyon</p>
-          </div>
-        </div>
-        <div class="carousel-item" style="background-image: url('images/pinoy.jpeg');">
-          <div class="carousel-caption d-none d-md-block">
-            <h1 class="display-4 fw-bold">Lasa ng Tahanan!</h1>
-            <p class="lead">Handa na ba kayong mag-order?</p>
-          </div>
+
+        <div class="hero-controls" id="heroControls">
+          <button class="hero-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+          <div class="hero-indicators" role="tablist" aria-label="Slides"></div>
+          <button class="hero-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+    </div>
+  </section>
+
+  <!-- Bestsellers Grid (below hero) -->
+  <section id="bestsellers" class="content-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Our Bestsellers</h2>
+      <div class="row g-4 justify-content-center" id="bestsellerGrid">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 position-relative">
+            <img src="images/manok.jpg" class="card-img-top" alt="Adobo">
+            <div class="card-body text-center">
+              <h5 class="card-title">Adobo</h5>
+              <p class="text-muted">₱130</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 position-relative">
+            <img src="images/kare.jpg" class="card-img-top" alt="Kare-Kare">
+            <div class="card-body text-center">
+              <h5 class="card-title">Kare-Kare</h5>
+              <p class="text-muted">₱180</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 position-relative">
+            <img src="images/halo.jpg" class="card-img-top" alt="Halo-Halo">
+            <div class="card-body text-center">
+              <h5 class="card-title">Halo-Halo</h5>
+              <p class="text-muted">₱95</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -89,6 +122,14 @@
   <!-- Menu -->
   <section id="menu" class="content-section py-5" style="background: rgba(255,248,225,0.9);">
     <div class="container">
+      <div class="text-center mb-4" id="menuFilters">
+        <div class="d-inline-flex gap-2" role="tablist">
+          <button class="filter-pill active" onclick="filterMenu('all')">All</button>
+          <button class="filter-pill" onclick="filterMenu('mainDishes')">Ulam</button>
+          <button class="filter-pill" onclick="filterMenu('snacks')">Merienda</button>
+          <button class="filter-pill" onclick="filterMenu('drinks')">Inumin</button>
+        </div>
+      </div>
       <h2 class="section-title text-center mb-5">🍲 Main Dishes</h2>
       <div class="row g-4 mb-5" id="mainDishes">
         <!-- Menu cards populated by JS for consistency -->
@@ -148,20 +189,17 @@
   </section>
 
   <!-- Cart Modal -->
-  <div class="modal fade" id="cartModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">🛒 Iyong Cart</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <div id="cartItemsContainer"></div>
-          <div class="d-flex justify-content-between align-items-center mt-4 p-3 bg-light rounded">
-            <h4>Kabuuan: ₱<span id="cartTotalAmount">0</span></h4>
-            <button class="btn btn-success btn-lg" onclick="placeOrder()">Order Now ✅</button>
-          </div>
-        </div>
+  <!-- Cart Drawer (offcanvas) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+    <div class="offcanvas-header">
+      <h5 id="cartDrawerLabel">🛒 Iyong Cart</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="cartItemsContainer"></div>
+      <div class="d-flex justify-content-between align-items-center mt-4 p-3 bg-light rounded">
+        <h4>Kabuuan: ₱<span id="cartTotalAmount">0</span></h4>
+        <button class="btn btn-success btn-lg" onclick="placeOrder()">Order Now ✅</button>
       </div>
     </div>
   </div>
