@@ -16,23 +16,23 @@ function showSection(id) {
 // Menu data
 const menuData = {
   mainDishes: [
-    { name: 'Adobo (Manok o Baboy)', price: 130, img: 'manok.jpg', desc: 'Pinakilalang ulam ng mga Pilipino na may tamang alat at asim.' },
-    { name: 'Sinigang na Baboy', price: 150, img: 'pig.jpg', desc: 'Maasim, masabaw, at pampagana lalo na sa tag-ulan.' },
-    { name: 'Kare-Kare', price: 180, img: 'kare.jpg', desc: 'Nilagang baka na may peanut sauce, sinasabayan ng bagoong.' },
-    { name: 'Laing', price: 120, img: 'laing.jpg', desc: 'Gabi leaves sa gata at sili, paboritong Bicolano dish.' }
+    { name: 'Adobo (Manok o Baboy)', price: 130, img: 'images/manok.jpg', desc: 'Pinakilalang ulam ng mga Pilipino na may tamang alat at asim.' },
+    { name: 'Sinigang na Baboy', price: 150, img: 'images/pig.jpg', desc: 'Maasim, masabaw, at pampagana lalo na sa tag-ulan.' },
+    { name: 'Kare-Kare', price: 180, img: 'images/kare.jpg', desc: 'Nilagang baka na may peanut sauce, sinasabayan ng bagoong.' },
+    { name: 'Laing', price: 120, img: 'images/laing.jpg', desc: 'Gabi leaves sa gata at sili, paboritong Bicolano dish.' }
   ],
   snacks: [
-    { name: 'Pancit Canton', price: 90, img: 'pancit.jpg', desc: 'Classic merienda na may gulay, karne, at itlog.' },
-    { name: 'Turon', price: 50, img: 'turon.jpg', desc: 'Sweet snack na may saging at langka, pritong malutong.' },
-    { name: 'Kwek-Kwek', price: 60, img: 'kwek.jpg', desc: 'Piniritong itlog ng pugo na may orange batter.' },
-    { name: 'Banana Cue', price: 40, img: 'banana.jpg', desc: 'Piniritong saging na may caramelized sugar, paboritong street food.' },
-    { name: 'Biko', price: 55, img: 'biko.jpg', desc: 'Malagkit na rice cake na may latik sa ibabaw.' }
+    { name: 'Pancit Canton', price: 90, img: 'images/pancit.jpg', desc: 'Classic merienda na may gulay, karne, at itlog.' },
+    { name: 'Turon', price: 50, img: 'images/turon.jpg', desc: 'Sweet snack na may saging at langka, pritong malutong.' },
+    { name: 'Kwek-Kwek', price: 60, img: 'images/kwek.jpg', desc: 'Piniritong itlog ng pugo na may orange batter.' },
+    { name: 'Banana Cue', price: 40, img: 'images/banana.jpg', desc: 'Piniritong saging na may caramelized sugar, paboritong street food.' },
+    { name: 'Biko', price: 55, img: 'images/biko.jpg', desc: 'Malagkit na rice cake na may latik sa ibabaw.' }
   ],
   drinks: [
-    { name: 'Buko Juice', price: 50, img: 'buko.jpg', desc: 'Sariwang buko juice, natural at nakakapresko.' },
-    { name: "Sago't Gulaman", price: 40, img: 'gulaman.jpg', desc: 'Matamis at malamig na inumin, perfect sa mainit na araw.' },
-    { name: 'Salabat', price: 35, img: 'keneme.jpg', desc: 'Mainit at masustansyang luya tea.' },
-    { name: 'Iced Tea', price: 30, img: 'ice.jpg', desc: 'Refreshing iced tea, tamang-tama sa init ng panahon.' }
+    { name: 'Buko Juice', price: 50, img: 'images/buko.jpg', desc: 'Sariwang buko juice, natural at nakakapresko.' },
+    { name: "Sago't Gulaman", price: 40, img: 'images/gulaman.jpg', desc: 'Matamis at malamig na inumin, perfect sa mainit na araw.' },
+    { name: 'Salabat', price: 35, img: 'images/keneme.jpg', desc: 'Mainit at masustansyang luya tea.' },
+    { name: 'Iced Tea', price: 30, img: 'images/ice.jpg', desc: 'Refreshing iced tea, tamang-tama sa init ng panahon.' }
   ]
 };
 
