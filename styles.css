@@ -1,5 +1,9 @@
-/* Pinoy Kusina - Enhanced Responsive Styles */
-/* Bootstrap 5 overrides + custom animations for engaging design */
+/* Pinoy Kusina - Enhanced Responsive Styles
+   - Bootstrap 5 overrides + custom animations for engaging design
+   - Interactive classes used by JavaScript:
+     - `.search-box.expanded` is toggled by `#searchToggle` in `script.js` to show/hide the search input
+     - `.menu-item.hidden` is toggled by `searchMenu()` / `filterMenu()` in `script.js` to hide filtered items
+*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -60,6 +64,7 @@ body {
   margin-left: 0.25rem;
   padding: 0.25rem 0.5rem;
 }
+/* JS toggles `.expanded` on the search-box to show/hide it, and JS focuses it when opening. */
 .search-box.expanded {
   width: 220px;
   opacity: 1;
@@ -81,6 +86,8 @@ body {
 
 /* Menu item for filtering/searching */
 .menu-item { display: block; transition: transform 0.25s ease, opacity 0.25s ease; }
+/* When `.hidden` is applied (by JS search/filter functions) the item is visually removed
+  while staying in the DOM to allow smooth transitions and preserve layout flow. */
 .menu-item.hidden { opacity: 0; transform: scale(0.98); pointer-events: none; height: 0; margin: 0; padding: 0; overflow: hidden; }
 
 .navbar-brand {
